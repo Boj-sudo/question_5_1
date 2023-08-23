@@ -11,3 +11,4 @@
 - HTML & CSS
 - Marven
 - Spring data jpa
+- Javascript
