@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+	<title>Registration:</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" th:href="@{/fonts/icomoon/style.css}">
+
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/css/jquery.fancybox.min.css}">
+	<link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+	<link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+	<link rel="stylesheet" th:href="@{/fonts/flaticon/font/flaticon.css}">
+	<link rel="stylesheet" th:href="@{/css/aos.css}">
+
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+
+	<script>
+		function checkPassword(event) {
+			var password = document.getElementById("password").value;
+			var confirmPassword = document.getElementById("confirm_password").value;
+			var errorElement = document.getElementById("passwordError");
+
+			if (password !== confirmPassword) {
+				errorElement.textContent = "Password do not match, please try again.";
+				event.preventDefault();
+			} else {
+				errorElement.textContent = "";
+			}
+		}
+	</script>
+</head>
+
+<body>
+	</br>
+	</br>
+	</br>
+	<h1 style="text-align: center;"><b>Registration.</b></h1>
+	<section class="banner-area  blog-page text-center">
+		<div class="banner">
+			<div class="container ">
+				<div class="row fill_height">
+					<div class="col-lg-6 offset-lg-3 fill_height">
+						<div class="banner_content">
+
+							<!-- Success message -->
+							<div th:if="${param.success}">
+								<div class="alert alert-info">
+									You've successfully registered.
+								</div>
+							</div>
+							<form th:action="@{/registration}" th:object="${user}" class="panel-body" method="post">
+
+								<div class="form-group">
+									<input type="text" placeholder="First name" id="first_name" class="form-control"
+										th:field="*{firstname}" required autofocus="autofocus" />
+								</div>
+
+								<div class="form-group">
+									<input type="text" placeholder="Last name" id="last_name" class="form-control"
+										th:field="*{lastname}" required autofocus="autofocus" />
+								</div>
+
+								<div class="form-group">
+									<input type="text" placeholder="Mobile Numbers" id="telephone" class="form-control"
+										th:field="*{telephone}" required autofocus="autofocus" />
+								</div>
+								
+								<div class="form-group">
+									<input type="email" placeholder="Email" id="email" class="form-control"
+										th:field="*{email}" required autofocus="autofocus" />
+								</div>
+								
+								<div class="form-group">
+									<input type="text" placeholder="User name" id="user_name" class="form-control"
+										th:field="*{username}" required autofocus="autofocus" />
+								</div>
+
+								<div class="form-group">
+									<input type="password" id="password" placeholder="Password" class="form-control"
+										name="password" required />
+								</div>
+
+								<div class="form-group">
+									<input type="password" id="confirm_password" placeholder="Confirm Password"
+										class="form-control" name="confirmPassword" required
+										onBlur="checkPassword(event)" />
+									<span id="passwordError" style="color: red;"></span>
+								</div>
+
+								<button type="submit" class="btn btn-warning py-2 px-5" onClick="checkPassword(event)">
+									Sign up</button>
+
+								<div class="line line-dashed"></div>
+								<p>Already have an account? <a th:href="@{/login}" style="color:deepskyblue">Sign In</a>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/jquery.waypoints.min.js}"></script>
+	<script th:src="@{/js/jquery.animateNumber.min.js}"></script>
+	<script th:src="@{/js/jquery.fancybox.min.js}"></script>
+	<script th:src="@{/js/jquery.easing.1.3.js}"></script>
+	<script th:src="@{/js/aos.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>
